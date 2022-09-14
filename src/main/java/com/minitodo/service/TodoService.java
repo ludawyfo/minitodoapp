@@ -42,7 +42,7 @@ public class TodoService {
 		return repository.findByTitel(titel);
 	}
 	
-	public Optional<Todo> findTodoById(int id) {
+	public Optional<Todo> findTodoById(String id) {
 		return repository.findById(id);
 	}
 	

@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TodoRepo extends CrudRepository<Todo, Integer> {
+public interface TodoRepo extends CrudRepository<Todo, String> {
 
 	Optional<Todo> findByTitel(String titel);
 

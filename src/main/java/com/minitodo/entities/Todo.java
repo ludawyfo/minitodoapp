@@ -1,26 +1,20 @@
 package com.minitodo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+
+@Document
 public class Todo {
 
-	@GeneratedValue
-	@Id
-	private int id;
+	@org.springframework.data.annotation.Id
+	private String id;
 	
-//	@Column(unique = true)
 	@NotNull
-	@Column
 	private String titel;
 	
 	@NotNull
-	@Column
 	private String status;
 	
 	public Todo() {
@@ -32,11 +26,11 @@ public class Todo {
 		this.status = status;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

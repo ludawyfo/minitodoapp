@@ -45,7 +45,7 @@ public class TodoManager {
 		return service.findTodoByTitel(titel).orElseThrow(() -> new RuntimeException("Todo not found."));
 	}
 	
-	public Todo getTodoById(int id) {
+	public Todo getTodoById(String id) {
 		return service.findTodoById(id).orElseThrow(() -> new RuntimeException("Todo not found."));
 	}
 
