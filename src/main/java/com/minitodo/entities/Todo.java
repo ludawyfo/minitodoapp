@@ -1,36 +1,36 @@
 package com.minitodo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-@Entity
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document
 public class Todo {
 
-	@GeneratedValue
-	@Id
-	private int id;
+	@org.springframework.data.annotation.Id
+	private String id;
 	
-//	@Column(unique = true)
+	@NotNull
 	private String titel;
 	
-	private Status status;
+	@NotNull
+	private String status;
 	
 	public Todo() {
 		
 	}
 
-	public Todo(String titel, Status status) {
+	public Todo(String titel, String status) {
 		this.titel = titel;
 		this.status = status;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -42,45 +42,15 @@ public class Todo {
 		this.titel = titel;
 	}
 
-	public Status getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result + ((titel == null) ? 0 : titel.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Todo other = (Todo) obj;
-		if (id != other.id)
-			return false;
-		if (status != other.status)
-			return false;
-		if (titel == null) {
-			if (other.titel != null)
-				return false;
-		} else if (!titel.equals(other.titel))
-			return false;
-		return true;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "ToDo [id=" + id + ", titel=" + titel + ", status=" + status + "]";
