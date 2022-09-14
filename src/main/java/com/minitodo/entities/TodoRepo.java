@@ -1,12 +1,13 @@
 package com.minitodo.entities;
 
-import java.util.List;
+import java.util.Optional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface TodoRepo extends JpaRepository<Todo, Integer> {
+@Repository
+public interface TodoRepo extends CrudRepository<Todo, Integer> {
 
-	List<Todo> findByStatus(Status status);
-	Todo findByTitel(String titel);
+	Optional<Todo> findByTitel(String titel);
 
 }
